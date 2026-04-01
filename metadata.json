@@ -1,0 +1,8 @@
+{
+  "name": "Nix Notes",
+  "description": "A modern, fast, and fully offline notes application with a premium Material You design. Features rich text editing, organization, and security.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #6750A4;
+  --color-on-primary: #FFFFFF;
+  --color-primary-container: #EADDFF;
+  --color-on-primary-container: #21005D;
+  
+  --color-secondary: #625B71;
+  --color-on-secondary: #FFFFFF;
+  --color-secondary-container: #E8DEF8;
+  --color-on-secondary-container: #1D192B;
+  
+  --color-surface: #FEF7FF;
+  --color-on-surface: #1D1B20;
+  --color-surface-variant: #E7E0EB;
+  --color-on-surface-variant: #49454F;
+  
+  --color-outline: #79747E;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans;
+  }
+}
+
+.ql-editor {
+  @apply min-h-[300px] text-lg;
+}
+
+.ql-toolbar {
+  @apply !border-none !bg-surface-variant/50 rounded-t-2xl;
+}
+
+.ql-container {
+  @apply !border-none !text-lg;
+}
+
