@@ -15,14 +15,17 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 20
         cache: 'npm'
 
+    - name: Debug Structure
+      run: ls -R
+
     - name: Install dependencies
-      run: npm install
+      run: npm install --frozen-lockfile || npm install
 
     - name: Build web app
-      run: npm run build
+      run: npx vite build
 
     - name: Set up JDK 17
       uses: actions/setup-java@v4
@@ -30,15 +33,15 @@ jobs:
         java-version: '17'
         distribution: 'zulu'
 
-    - name: Add Android platform
-      run: npx cap add android
-
     - name: Sync Capacitor
-      run: npx cap sync
+      run: |
+        npm install @capacitor/core @capacitor/cli @capacitor/android
+        npx cap sync
 
     - name: Build APK
       run: |
         cd android
+        chmod +x gradlew
         ./gradlew assembleDebug
 
     - name: Upload APK
